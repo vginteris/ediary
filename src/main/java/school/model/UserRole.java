@@ -6,19 +6,22 @@ import java.util.List;
 @Entity
 @Table(name = "ediary_user_role")
 public class UserRole {
-    private long roleId;
+    private long roleid;
     private String roleName;
     private List<LoginUser> loginUsers;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public long getRoleId() {
-        return roleId;
+    public long getRoleid() {
+        return roleid;
     }
 
-    public void setRoleId(long roleId) {
-        this.roleId = roleId;
+    public void setRoleid(long roleid) {
+        this.roleid = roleid;
     }
+
+
 
     public String getRoleName() {
         return roleName;

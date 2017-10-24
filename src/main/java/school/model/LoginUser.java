@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ediary_login_user")
 public class LoginUser {
-    private long userId;
+    private long userid;
     private String username;
     private String password;
     private String passwordComfirm;
@@ -14,12 +14,12 @@ public class LoginUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    public long getUserId() {
-        return userId;
+    public long getUserid() {
+        return userid;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUserid(long userid) {
+        this.userid = userid;
     }
 
     public String getUsername() {

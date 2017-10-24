@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-10-24.10:08:05.134</IntrospectionTimestamp>
-      <IntrospectionStateNumber>2235</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-10-24.10:14:12.091</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2259</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -30,8 +30,8 @@
       <ObjectId>12113</ObjectId>
     </schema>
     <sequence id="9" parent="3" name="hibernate_sequence">
-      <ObjectId>66441</ObjectId>
-      <StateNumber>2232</StateNumber>
+      <ObjectId>66501</ObjectId>
+      <StateNumber>2256</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
     <sequence id="10" parent="3" name="students_id_seq">
@@ -173,12 +173,12 @@
       <StateNumber>683</StateNumber>
     </table>
     <table id="36" parent="3" name="ediary_login_user">
-      <ObjectId>66443</ObjectId>
-      <StateNumber>2235</StateNumber>
+      <ObjectId>66503</ObjectId>
+      <StateNumber>2259</StateNumber>
     </table>
     <table id="37" parent="3" name="ediary_user_role">
-      <ObjectId>66451</ObjectId>
-      <StateNumber>2235</StateNumber>
+      <ObjectId>66511</ObjectId>
+      <StateNumber>2259</StateNumber>
     </table>
     <table id="38" parent="3" name="home123">
       <ObjectId>16725</ObjectId>
@@ -674,66 +674,66 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="133" parent="36" name="user_id">
+    <column id="133" parent="36" name="userid">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2233</StateNumber>
+      <StateNumber>2257</StateNumber>
     </column>
     <column id="134" parent="36" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
-      <StateNumber>2233</StateNumber>
+      <StateNumber>2257</StateNumber>
     </column>
     <column id="135" parent="36" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
-      <StateNumber>2233</StateNumber>
+      <StateNumber>2257</StateNumber>
     </column>
-    <column id="136" parent="36" name="user_role_role_id">
+    <column id="136" parent="36" name="user_role_roleid">
       <Position>4</Position>
       <DataType>bigint|0</DataType>
-      <StateNumber>2233</StateNumber>
+      <StateNumber>2257</StateNumber>
     </column>
     <index id="137" parent="36" name="ediary_login_user_pkey">
-      <ObjectId>66449</ObjectId>
-      <ColNames>user_id</ColNames>
+      <ObjectId>66509</ObjectId>
+      <ColNames>userid</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="138" parent="36" name="ediary_login_user_pkey">
-      <ObjectId>66450</ObjectId>
-      <ColNames>user_id</ColNames>
+      <ObjectId>66510</ObjectId>
+      <ColNames>userid</ColNames>
       <UnderlyingIndexName>ediary_login_user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="139" parent="36" name="fkavbg152el9p5ydqjgrpktpfkt">
-      <ObjectId>66456</ObjectId>
-      <ColNames>user_role_role_id</ColNames>
-      <RefTableId>66451</RefTableId>
+    <foreign-key id="139" parent="36" name="fkq7i8uin9vvj91k2b8ic5oii8x">
+      <ObjectId>66516</ObjectId>
+      <ColNames>user_role_roleid</ColNames>
+      <RefTableId>66511</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>ediary_user_role</RefTableName>
       <RefKeyName>ediary_user_role_pkey</RefKeyName>
-      <RefColNames>role_id</RefColNames>
+      <RefColNames>roleid</RefColNames>
     </foreign-key>
-    <column id="140" parent="37" name="role_id">
+    <column id="140" parent="37" name="roleid">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2234</StateNumber>
+      <StateNumber>2258</StateNumber>
     </column>
     <column id="141" parent="37" name="role_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
-      <StateNumber>2234</StateNumber>
+      <StateNumber>2258</StateNumber>
     </column>
     <index id="142" parent="37" name="ediary_user_role_pkey">
-      <ObjectId>66454</ObjectId>
-      <ColNames>role_id</ColNames>
+      <ObjectId>66514</ObjectId>
+      <ColNames>roleid</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="143" parent="37" name="ediary_user_role_pkey">
-      <ObjectId>66455</ObjectId>
-      <ColNames>role_id</ColNames>
+      <ObjectId>66515</ObjectId>
+      <ColNames>roleid</ColNames>
       <UnderlyingIndexName>ediary_user_role_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
