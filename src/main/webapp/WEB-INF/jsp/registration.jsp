@@ -28,6 +28,7 @@
                 <form:input type="password" path="passwordComfirm" placeholder="passwordconfirm"></form:input>
                 <form:errors path="passwordComfirm"></form:errors>
             </div>
+            <form:input path="userRole" value="1"></form:input>
             <div class="col col-md-8 col-md-offset-2">
                 <form:button type="submit" class="btn btn-danger" value="save">Save</form:button>
             </div>

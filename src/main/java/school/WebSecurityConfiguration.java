@@ -26,7 +26,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/demo")
+                .defaultSuccessUrl("/veikia")
                 .and().logout().permitAll().and().csrf().disable();
     }
 

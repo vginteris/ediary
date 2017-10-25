@@ -7,7 +7,6 @@
 <head>
     <title>Registracijos langas</title>
     <link type="text/css" rel="stylesheet" href="${path}/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
