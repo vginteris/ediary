@@ -1,6 +1,7 @@
 package school.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ediary_teacher")
@@ -10,7 +11,7 @@ public class Teacher {
     private String teacherSurname;
     private String teacherPhone;
     private String teacherEmail;
-    private String teachingSubject;
+    private List<SchoolSubject> subjects;
     private SchoolClass schoolClass;
     private LoginUser loginUser;
 
@@ -56,12 +57,13 @@ public class Teacher {
         this.teacherEmail = teacherEmail;
     }
 
-    public String getTeachingSubject() {
-        return teachingSubject;
+    @OneToMany(mappedBy = "teacher")
+    public List<SchoolSubject> getSubjects() {
+        return subjects;
     }
 
-    public void setTeachingSubject(String teachingSubject) {
-        this.teachingSubject = teachingSubject;
+    public void setSubjects(List<SchoolSubject> subjects) {
+        this.subjects = subjects;
     }
 
     @OneToOne(cascade = CascadeType.ALL)

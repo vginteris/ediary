@@ -5,3 +5,4 @@ import school.model.Apprentice;
 
 public interface RepApprentice extends JpaRepository<Apprentice,Long> {
 }
+
