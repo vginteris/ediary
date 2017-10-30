@@ -16,7 +16,7 @@ public class Teacher {
     private LoginUser loginUser;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getTeacherid() {
         return teacherid;
     }

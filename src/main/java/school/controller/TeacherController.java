@@ -30,9 +30,10 @@ public class TeacherController {
     }
     @RequestMapping(value = "/newteachertable")
     public String newApprenticeTable(){
-        return "administrator/newapprentice";
+        return "administrator/newteacher";
     }
-    @RequestMapping(value = "/updateapprentice", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/updateteacher", method = RequestMethod.POST)
     public String updateTeacher(@ModelAttribute Teacher teacher){
         teacherService.updateTeacher(teacher);
         return "redirect:/teacher";

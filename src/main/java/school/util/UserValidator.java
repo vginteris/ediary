@@ -31,10 +31,10 @@ public class UserValidator implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "EmptySpace");
 
-        if (user.getUsername().length() <= 6 || user.getUsername().length() >= 32) {
+        if (user.getUsername().length() <= 3 || user.getUsername().length() >= 32) {
             errors.rejectValue("username", "Size.username");
         }
-        if (user.getPassword().length() < 6 || user.getPassword().length() >= 31) {
+        if (user.getPassword().length() < 3 || user.getPassword().length() >= 31) {
             errors.rejectValue("password", "Size.password");
         }
 

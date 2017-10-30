@@ -24,11 +24,15 @@ public class ParentServiceImp implements ParentService {
 
     @Override
     public void updateParent(Parent parent) {
-        repParent.save(parent);
     }
 
     @Override
     public void deleteParentById(long id) {
         repParent.delete(id);
+    }
+
+    @Override
+    public Parent getParentByName(String name) {
+        return repParent.getParentByParentName(name);
     }
 }

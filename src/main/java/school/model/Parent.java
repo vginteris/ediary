@@ -16,7 +16,7 @@ public class Parent {
     private LoginUser loginUser;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getParentid() {
         return parentid;
     }

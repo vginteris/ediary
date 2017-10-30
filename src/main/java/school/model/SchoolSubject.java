@@ -10,7 +10,7 @@ public class SchoolSubject {
     private Teacher teacher;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getSubjectid() {
         return subjectid;
     }

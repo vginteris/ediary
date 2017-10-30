@@ -13,7 +13,7 @@ public class LoginUser {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getUserid() {
         return userid;
     }

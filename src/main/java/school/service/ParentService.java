@@ -9,4 +9,5 @@ public interface ParentService {
     void addNewParent(Parent parent);
     void updateParent(Parent parent);
     void deleteParentById(long id);
+    Parent getParentByName(String name);
 }

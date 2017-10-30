@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <%--<script type="text/javascript" src="../../../js/captainlist.js"></script>--%>
     <link rel="stylesheet" href="css/structure.css">
 </head>
@@ -22,7 +23,7 @@
                 </div>
 
                 <div>
-                    <input type="submit" name="Insert" >
+                    <input type="submit" name="Insert">
                 </div>
             </form>
         </div>
@@ -31,14 +32,15 @@
         <div class="row">
             <form action="/newapprentice" method="post">
 
-            <div>
+                <div>
                     <h5>New apprentice</h5>
                     <input type="text" class="form-control" placeholder="Name" name="apprenticeName">
                     <input type="text" class="form-control" placeholder="surname" name="apprenticeSurname">
+                    <input type="text" class="form-control" placeholder="classname" name="className">
                 </div>
 
                 <div>
-                    <input type="submit" name="Insert" >
+                    <input type="submit" name="Insert">
                 </div>
             </form>
         </div>

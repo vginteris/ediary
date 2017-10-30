@@ -44,14 +44,14 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="captain" items="${teacherList}">
-                <tr id="row_captain${captain.getTeacherid()}">
-                    <td id="id_row_captain${captain.getTeacherid()}"><c:out value="${captain.getTeacherid()}"/></td>
-                    <td id="name_row_captain${captain.getTeacherName()}"><c:out value="${captain.getTeacherName()}"/></td>
-                    <td id="surname_row_captain${captain.getTeacherSurname()}"><c:out value="${captain.getTeacherSurname()}"/></td>
+            <c:forEach var="teacher" items="${teacherList}">
+                <tr id="row_teacher${teacher.getTeacherid()}">
+                    <td id="id_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherid()}"/></td>
+                    <td id="name_row_teacher${teacher.getTeacherName()}"><c:out value="${teacher.getTeacherName()}"/></td>
+                    <td id="surname_row_teacher${teacher.getTeacherSurname()}"><c:out value="${teacher.getTeacherSurname()}"/></td>
                     <td >
-                        <input type="button" id="delete_captain${captain.getTeacherid()}" value="DELETE"
-                               onclick="delete_captain(${captain.getTeacherid()})">
+                        <input type="button" id="delete_teacher${teacher.getTeacherid()}" value="DELETE"
+                               onclick="delete_teacher(${teacher.getTeacherid()})">
                     </td>
                 </tr>
             </c:forEach>

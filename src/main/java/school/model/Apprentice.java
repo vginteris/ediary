@@ -13,7 +13,7 @@ public class Apprentice {
     private LoginUser loginUser;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getApprenticeid() {
         return apprenticeid;
     }

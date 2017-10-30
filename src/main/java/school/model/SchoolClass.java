@@ -12,7 +12,7 @@ public class SchoolClass {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getSchoolClassid() {
         return schoolClassid;
     }

@@ -47,9 +47,5 @@ public class LoginUserController {
         }
         return "login";
     }
-    @RequestMapping("/veikia")
-    public String mainpage2() {
-        return "administrator/apprentice";
-    }
 
 }

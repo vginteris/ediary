@@ -12,7 +12,7 @@ public class UserRole {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getRoleid() {
         return roleid;
     }
