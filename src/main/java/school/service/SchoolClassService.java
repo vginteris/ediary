@@ -12,4 +12,5 @@ public interface SchoolClassService {
     void deleteSchoolClasstById(long id);
     SchoolClass getSchoolClasByName(String name);
     long addnewclass(SchoolClass schoolClass);
+    SchoolClass getSchoolClassByID(long id);
 }

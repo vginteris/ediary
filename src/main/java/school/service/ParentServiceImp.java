@@ -35,4 +35,15 @@ public class ParentServiceImp implements ParentService {
     public Parent getParentByName(String name) {
         return repParent.getParentByParentName(name);
     }
+
+    @Override
+    public long addNewParentAndReturnId(Parent parent) {
+        parent = repParent.saveAndFlush(parent);
+        return parent.getParentid();
+    }
+
+    @Override
+    public Parent getParentById(long id) {
+        return repParent.getOne(id);
+    }
 }

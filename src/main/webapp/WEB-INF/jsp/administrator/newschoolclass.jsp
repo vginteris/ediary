@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/structure.css">
     <script type="text/javascript" src="webjars/jquery/3.2.1/jquery.js"></script>
     <script type="text/javascript">
-        function delete_apprentice(apprenticeid) {
-            document.getElementById("row_apprentice" + apprenticeid).outerHTML = "";
+        function delete_captain(apprenticeid) {
+            document.getElementById("row_captain" + apprenticeid).outerHTML = "";
 
             var postgres
             var url = "/deleteapprentice";
@@ -41,6 +41,12 @@
             console.log(name);
             console.log(surname);
 
+//            private long apprenticeid;
+//            private String apprenticeName;
+//            private String apprenticeSurname;
+//            private SchoolClass schoolClass;
+//            private Parent apprentieParent;
+//            private LoginUser loginUser;
             $.post("/updateapprentice",
                 {
                     apprenticeid: apprenticeid,
@@ -57,23 +63,6 @@
             );
 
         }
-        function myFunction() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
-                if (td) {
-                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
     </script>
 </head>
 <body>
@@ -81,6 +70,7 @@
 <jsp:include page="pagestructure/navigator.jsp"/>
 <section>
     <div class="container">
+
         <table id="myTable" class="table table-striped table-inverse">
             <thead>
             <tr>
@@ -108,11 +98,11 @@
                             value="${apprentice.getApprenticeName()}"/></td>
                     <td id="surname_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
                             value="${apprentice.getApprenticeSurname()}"/></td>
-                    <td id="class_row_apprentice${apprentice.getApprenticeid()}"><c:out
+                    <td id="class_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
                             value="${apprentice.getSchoolClass().getClassName()}"/></td>
-                    <td id="parent_row_apprentice${apprentice.getApprenticeid()}"><c:out
+                    <td id="parent_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
                             value="${apprentice.getApprentieParent().getParentName()}"/></td>
-                    <td id="loginuser_row_apprentice${apprentice.getApprenticeid()}"><c:out
+                    <td id="loginuser_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
                             value="${apprentice.getLoginUser().getUsername()}"/></td>
                     <td>
                         <input type="button" id="update_apprentice${apprentice.getApprenticeid()}" value="UPDATE"
@@ -129,9 +119,26 @@
 
 
     </div>
-
 </section>
 <jsp:include page="pagestructure/footer.jsp"/>
-
+<script type="text/javascript">
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>

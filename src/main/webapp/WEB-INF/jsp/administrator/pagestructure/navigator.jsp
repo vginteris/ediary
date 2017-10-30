@@ -10,6 +10,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/teacher">Teachers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/schoolclass">Schooclass</a>
+            </li>
         </ul>
     </nav>
 </div>

@@ -13,22 +13,22 @@ public class SchoolClassServiceImp implements SchoolClassService{
     RepSchoolClass repSchoolClass;
     @Override
     public List<SchoolClass> getAllSchoolClass() {
-        return null;
+        return repSchoolClass.findAll();
     }
 
     @Override
     public void addNewSchoolClass(SchoolClass schoolClass) {
-
+        repSchoolClass.save(schoolClass);
     }
 
     @Override
     public void updateSchoolClass(SchoolClass schoolClass) {
-
+        repSchoolClass.save(schoolClass);
     }
 
     @Override
     public void deleteSchoolClasstById(long id) {
-
+        repSchoolClass.delete(id);
     }
 
     @Override
@@ -40,6 +40,11 @@ public class SchoolClassServiceImp implements SchoolClassService{
     public long addnewclass(SchoolClass schoolClass) {
         schoolClass = repSchoolClass.saveAndFlush(schoolClass);
         return schoolClass.getSchoolClassid();
+    }
+
+    @Override
+    public SchoolClass getSchoolClassByID(long id) {
+        return repSchoolClass.getOne(id);
     }
 
 

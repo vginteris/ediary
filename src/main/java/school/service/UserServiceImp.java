@@ -30,4 +30,12 @@ public class UserServiceImp implements UserService {
     public LoginUser findByUsername(String username) {
         return repLoginUser.findByUsername(username);
     }
+
+    @Override
+    public long insertNewUserAndGetID(LoginUser loginUser) {
+        loginUser.setPassword(bCryptPasswordEncoder.encode(loginUser.getPassword()));
+        loginUser.setUserRole(loginUser.getUserRole());
+        loginUser = repLoginUser.saveAndFlush(loginUser);
+        return loginUser.getUserid();
+    }
 }
