@@ -2,6 +2,9 @@
     <nav>
         <ul class="nav flex-column">
             <li class="nav-item">
+                <a class="nav-link" href="/newusernametable">Username</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/apprentice">Apprentice</a>
             </li>
             <li class="nav-item">

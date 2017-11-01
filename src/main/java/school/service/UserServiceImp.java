@@ -9,6 +9,7 @@ import school.repository.RepLoginUser;
 import school.repository.RepUserRole;
 
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -37,5 +38,10 @@ public class UserServiceImp implements UserService {
         loginUser.setUserRole(loginUser.getUserRole());
         loginUser = repLoginUser.saveAndFlush(loginUser);
         return loginUser.getUserid();
+    }
+
+    @Override
+    public List<LoginUser> getAllUser() {
+        return repLoginUser.findAll();
     }
 }

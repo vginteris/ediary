@@ -9,5 +9,6 @@ public interface ApprenticeService {
     void addNewApprentice(Apprentice apprentice);
     void updateApprentice(Apprentice apprentice);
     void deleteApprenticeById(long id);
-
+    Apprentice getApprenticeByID(long id);
+    List<Apprentice> getApprenticeWithoutClass();
 }

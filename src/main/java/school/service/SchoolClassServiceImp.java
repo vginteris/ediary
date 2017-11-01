@@ -37,7 +37,7 @@ public class SchoolClassServiceImp implements SchoolClassService{
     }
 
     @Override
-    public long addnewclass(SchoolClass schoolClass) {
+    public long addNewClassAndReturnId(SchoolClass schoolClass) {
         schoolClass = repSchoolClass.saveAndFlush(schoolClass);
         return schoolClass.getSchoolClassid();
     }

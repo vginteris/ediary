@@ -31,4 +31,14 @@ public class ApprenticeServiceImp implements ApprenticeService {
     public void deleteApprenticeById(long id) {
         repApprentice.delete(id);
     }
+
+    @Override
+    public Apprentice getApprenticeByID(long id) {
+        return repApprentice.getOne(id);
+    }
+
+    @Override
+    public List<Apprentice> getApprenticeWithoutClass() {
+        return repApprentice.getApprenticesBySchoolClass(null);
+    }
 }

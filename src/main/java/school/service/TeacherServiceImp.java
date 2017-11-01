@@ -31,4 +31,20 @@ public class TeacherServiceImp implements TeacherService {
     public void deleteTeacherById(long id) {
         repTeacher.delete(id);
     }
+
+    @Override
+    public Teacher getTeacherByName(String name) {
+        return repTeacher.getTeacherByTeacherName(name);
+    }
+
+    @Override
+    public long addNewTeacherAndReturnId(Teacher teacher) {
+        teacher = repTeacher.saveAndFlush(teacher);
+        return teacher.getTeacherid();
+    }
+
+    @Override
+    public Teacher getTeacherById(long id) {
+        return repTeacher.getOne(id);
+    }
 }

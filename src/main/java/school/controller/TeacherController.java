@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import school.model.SchoolSubject;
 import school.model.Teacher;
+import school.service.SubjectService;
 import school.service.TeacherService;
 
 import java.util.List;
@@ -16,12 +18,18 @@ import java.util.List;
 public class TeacherController {
     @Autowired
     TeacherService teacherService;
+    @Autowired
+    SubjectService subjectService;
+
 
     @RequestMapping(value = "/teacher", method = RequestMethod.GET)
     public ModelAndView getAllTeacher(){
         ModelAndView model = new ModelAndView("administrator/teacher");
         List<Teacher> teacherList = teacherService.getAllTeacher();
-        return model.addObject("teacherList", teacherList);
+        model.addObject("teacherList", teacherList);
+        List<SchoolSubject> subjectList = subjectService.getAllSubject();
+        model.addObject("subjectList", subjectList);
+        return model;
     }
     @RequestMapping(value = "/newapteacher",method = RequestMethod.POST)
     public String addNewTeacher(@ModelAttribute Teacher teacher){

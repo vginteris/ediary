@@ -11,6 +11,6 @@ public interface SchoolClassService {
     void updateSchoolClass(SchoolClass schoolClass);
     void deleteSchoolClasstById(long id);
     SchoolClass getSchoolClasByName(String name);
-    long addnewclass(SchoolClass schoolClass);
+    long addNewClassAndReturnId(SchoolClass schoolClass);
     SchoolClass getSchoolClassByID(long id);
 }
