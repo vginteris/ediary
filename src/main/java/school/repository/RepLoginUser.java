@@ -5,4 +5,5 @@ import school.model.LoginUser;
 
 public interface RepLoginUser extends JpaRepository<LoginUser,Long> {
     LoginUser findByUsername(String username);
+
 }

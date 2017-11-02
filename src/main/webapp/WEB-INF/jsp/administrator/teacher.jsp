@@ -7,12 +7,12 @@
     <%--<script type="text/javascript" src="../../../js/captainlist.js"></script>--%>
     <link rel="stylesheet" href="css/structure.css">
     <script type="text/javascript">
-        function delete_captain(apprenticeid) {
-            document.getElementById("row_captain"+apprenticeid).outerHTML = "";
+        function delete_teacher(teacherid) {
+            document.getElementById("row_teacher"+teacherid).outerHTML = "";
 
             var postgres
-            var url = "/deleteapprentice";
-            var parameter ="apprenticeid="+apprenticeid;
+            var url = "/deleteteacher";
+            var parameter ="teacherid="+teacherid;
 
             postgres = window.XMLHttpRequest? new XMLHttpRequest():
                 new ActiveXObject("Microsoft.XMLHTTP");
@@ -55,7 +55,7 @@
                         <%--private List<SchoolSubject> subjects;--%>
                         <%--private SchoolClass schoolClass;--%>
                         <%--private LoginUser loginUser;--%>
-                        <form method="post" action="/insertnewclass" id="saveclass">
+                        <form method="post" action="/newapteacher" id="saveclass">
                             <input type="text" class="form-control" id="teacherName" name="teacherName" placeholder="Name">
                             <input type="text" class="form-control" id="teacherSurname" name="teacherSurname" placeholder="Surname">
                             <input type="text" class="form-control" id="teacherPhone" name="teacherPhone" placeholder="Phone">
@@ -66,7 +66,7 @@
                             <label for="subject">Subject </label><br>
                             <select multiple class="form-control" name="subject" id="subject">
                                 <c:forEach var="subject" items="${subjectList}">
-                                    <option value="${subject.getSubjectid()}">${subject.getSubjectName()}</option>
+                                    <option value="${subject}">${subject}</option>
                                 </c:forEach>
                             </select>
                         </form>

@@ -47,4 +47,9 @@ public class SubjectServiceImp implements SubjectService {
     public SchoolSubject getSubjectById(long id) {
         return repSubject.getOne(id);
     }
+
+    @Override
+    public List<SchoolSubject> getALlUniqueSubject() {
+        return repSubject.findAll();
+    }
 }

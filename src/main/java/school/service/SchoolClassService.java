@@ -13,4 +13,6 @@ public interface SchoolClassService {
     SchoolClass getSchoolClasByName(String name);
     long addNewClassAndReturnId(SchoolClass schoolClass);
     SchoolClass getSchoolClassByID(long id);
+    SchoolClass checkClassOrCreatNew(String name);
+//    Boolean chechClassExsist()
 }

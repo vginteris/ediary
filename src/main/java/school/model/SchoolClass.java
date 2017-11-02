@@ -10,6 +10,18 @@ public class SchoolClass {
     private String className;
     private List<Apprentice> apprenticeList;
 
+    public SchoolClass() {
+    }
+
+    public SchoolClass(String className) {
+        this.className = className;
+    }
+
+    public SchoolClass(long schoolClassid, String className, List<Apprentice> apprenticeList) {
+        this.schoolClassid = schoolClassid;
+        this.className = className;
+        this.apprenticeList = apprenticeList;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

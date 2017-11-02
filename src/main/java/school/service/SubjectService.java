@@ -12,4 +12,5 @@ public interface SubjectService {
     SchoolSubject getSubjectByName(String name);
     long addNewSubjectAndReturnId(SchoolSubject subject);
     SchoolSubject getSubjectById(long id);
+    List<SchoolSubject> getALlUniqueSubject();
 }

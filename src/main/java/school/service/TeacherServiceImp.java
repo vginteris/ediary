@@ -3,6 +3,7 @@ package school.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import school.model.Teacher;
+import school.repository.RepSubject;
 import school.repository.RepTeacher;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public class TeacherServiceImp implements TeacherService {
     @Autowired
     RepTeacher repTeacher;
+    @Autowired
+    RepSubject repSubject;
 
     @Override
     public List<Teacher> getAllTeacher() {

@@ -57,7 +57,7 @@ public class Teacher {
         this.teacherEmail = teacherEmail;
     }
 
-    @OneToMany(mappedBy = "teacher")
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "teacher")
     public List<SchoolSubject> getSubjects() {
         return subjects;
     }
@@ -66,7 +66,7 @@ public class Teacher {
         this.subjects = subjects;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "schoolClassid")
     public SchoolClass getSchoolClass() {
         return schoolClass;
@@ -76,7 +76,7 @@ public class Teacher {
         this.schoolClass = schoolClass;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "userid")
 
     public LoginUser getLoginUser() {

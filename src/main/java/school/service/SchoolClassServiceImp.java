@@ -47,5 +47,16 @@ public class SchoolClassServiceImp implements SchoolClassService{
         return repSchoolClass.getOne(id);
     }
 
+    @Override
+    public SchoolClass checkClassOrCreatNew(String name) {
+        int checkCount = repSchoolClass.countByClassName(name);
+
+//        SchoolClass schoolClass = repSchoolClass.getSchoolClassByClassName(name);
+        if (checkCount == 0) {
+            SchoolClass schoolClass = new SchoolClass(name);
+            return repSchoolClass.saveAndFlush(schoolClass);
+        } else return repSchoolClass.getSchoolClassByClassName(name);
+    }
+
 
 }

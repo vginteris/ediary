@@ -5,4 +5,5 @@ import school.model.Teacher;
 
 public interface RepTeacher extends JpaRepository<Teacher,Long>{
     Teacher getTeacherByTeacherName(String teacherName);
+    Teacher getTeacherByTeacherid(long teacherid);
 }
