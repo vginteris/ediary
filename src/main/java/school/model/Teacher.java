@@ -76,7 +76,7 @@ public class Teacher {
         this.schoolClass = schoolClass;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "userid")
 
     public LoginUser getLoginUser() {

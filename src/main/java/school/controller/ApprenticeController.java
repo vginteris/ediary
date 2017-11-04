@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import school.model.*;
 import school.service.*;
@@ -78,6 +80,24 @@ public class ApprenticeController {
     @RequestMapping(value = "/deleteapprentice", method = RequestMethod.POST)
     public void deleteApprentice(@RequestParam(value = "apprenticeid") long apprenticeId) {
         apprenticeService.deleteApprenticeById(apprenticeId);
+    }
+
+    @RequestMapping(value = "/uploadapprentices", method = RequestMethod.POST)
+    public String uploadFileAndWriteApprentie(@RequestParam(value = "fileap") MultipartFile fileap, ModelMap modelMap){
+//        modelMap.addAttribute("fife", fileap);
+//        try {
+//            CsvSchema bootstrapSchema = CsvSchema.emptySchema().withHeader();
+//            CsvMapper mapper = new CsvMapper();
+//            File file = new ClassPathResource(fileName).getFile();
+//            MappingIterator<T> readValues =
+//                    mapper.reader(type).with(bootstrapSchema).readValues(file);
+//            return readValues.readAll();
+//        } catch (Exception e) {
+//            logger.error("Error occurred while loading object list from file " + fileName, e);
+//            return Collections.emptyList();
+//        }
+
+        return "redirect:/apprentice";
     }
 
 

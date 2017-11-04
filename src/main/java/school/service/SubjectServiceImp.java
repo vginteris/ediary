@@ -52,4 +52,9 @@ public class SubjectServiceImp implements SubjectService {
     public List<SchoolSubject> getALlUniqueSubject() {
         return repSubject.findAll();
     }
+
+    @Override
+    public void updateSubjectNameAndType(String subjectName, String subjectType, long subjectid) {
+        repSubject.updateSubjectNameAndType(subjectName,subjectType,subjectid);
+    }
 }

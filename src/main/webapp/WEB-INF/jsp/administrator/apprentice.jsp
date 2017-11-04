@@ -57,6 +57,7 @@
             );
 
         }
+
         function myFunction() {
             var input, filter, table, tr, td, i;
             input = document.getElementById("myInput");
@@ -84,8 +85,14 @@
         <table id="myTable" class="table table-striped table-inverse">
             <thead>
             <tr>
-                <input  class="border border-primary" type="text" id="myInput" onkeyup="myFunction()" placeholder="Looking by surname..." >
-
+                <input class="border border-primary" type="text" id="myInput" onkeyup="myFunction()"
+                       placeholder="Looking by surname...">
+                <div>
+                    <form action="/uploadapprentices" method="post" enctype="multipart/form-data">
+                        <input type="file" name="fileap" placeholder="insert file">
+                        <input type="submit" name="submit" placeholder="submit">
+                    </form>
+                </div>
             </tr>
             <tr>
                 <th>Id</th>

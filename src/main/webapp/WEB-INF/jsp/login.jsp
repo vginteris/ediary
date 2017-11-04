@@ -16,8 +16,8 @@
     <div class="row">
         <div class="col col-md-8 col-md-offset-2">
             <form method="post" action="${path}/login" class="form-control ${error!=null ? 'show_error' :''}">
-                <input name="username" type="text" placeholder="username">
-                <input name="password" type="password" placeholder="password">
+                <input name="username" value="123qwe" type="text" placeholder="username">
+                <input name="password" value="123qwe" type="password" placeholder="password">
                 <span>${error}</span>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <button type="submit" class="btn-danger">Login</button>

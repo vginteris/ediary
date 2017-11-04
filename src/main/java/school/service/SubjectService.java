@@ -13,4 +13,5 @@ public interface SubjectService {
     long addNewSubjectAndReturnId(SchoolSubject subject);
     SchoolSubject getSubjectById(long id);
     List<SchoolSubject> getALlUniqueSubject();
+    void updateSubjectNameAndType(String subjectName,String subjectType, long subjectid);
 }
