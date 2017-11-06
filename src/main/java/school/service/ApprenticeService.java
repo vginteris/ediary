@@ -11,4 +11,5 @@ public interface ApprenticeService {
     void deleteApprenticeById(long id);
     Apprentice getApprenticeByID(long id);
     List<Apprentice> getApprenticeWithoutClass();
+    void uploadDataFromCSV(String text);
 }

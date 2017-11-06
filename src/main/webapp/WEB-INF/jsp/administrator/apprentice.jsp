@@ -89,8 +89,11 @@
                        placeholder="Looking by surname...">
                 <div>
                     <form action="/uploadapprentices" method="post" enctype="multipart/form-data">
-                        <input type="file" name="fileap" placeholder="insert file">
+                        <div class="form-control">
+                            <label for="fileap">Insert apprentice from CSV</label>
+                        <input type="file" id="fileap" name="fileap" placeholder="Inesrt apprentice file">
                         <input type="submit" name="submit" placeholder="submit">
+                        </div>
                     </form>
                 </div>
             </tr>

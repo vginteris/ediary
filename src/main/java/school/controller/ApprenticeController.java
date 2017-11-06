@@ -14,6 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import school.model.*;
 import school.service.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -84,18 +89,32 @@ public class ApprenticeController {
 
     @RequestMapping(value = "/uploadapprentices", method = RequestMethod.POST)
     public String uploadFileAndWriteApprentie(@RequestParam(value = "fileap") MultipartFile fileap, ModelMap modelMap){
-//        modelMap.addAttribute("fife", fileap);
-//        try {
-//            CsvSchema bootstrapSchema = CsvSchema.emptySchema().withHeader();
-//            CsvMapper mapper = new CsvMapper();
-//            File file = new ClassPathResource(fileName).getFile();
-//            MappingIterator<T> readValues =
-//                    mapper.reader(type).with(bootstrapSchema).readValues(file);
-//            return readValues.readAll();
-//        } catch (Exception e) {
-//            logger.error("Error occurred while loading object list from file " + fileName, e);
-//            return Collections.emptyList();
-//        }
+       BufferedReader br;
+        try {
+
+            String line;
+            InputStream is = fileap.getInputStream();
+            br = new BufferedReader(new InputStreamReader(is));
+            int linenumber=0;
+            Apprentice apprentice;
+            while ((line = br.readLine()) != null) {
+               String[] array = line.split(",");
+              if (linenumber !=0) {
+                 apprentice = new Apprentice();
+                 apprentice.setApprenticeName(array[0]);
+                 apprentice.setApprenticeSurname(array[1]);
+                 apprentice.setSchoolClass(schoolClassService.getSchoolClassByID(Long.parseLong(array[2])));
+                 apprentice.setApprentieParent(parentService.getParentById(Long.parseLong(array[3])));
+                 apprentice.setLoginUser(userService.findByUsername(array[4]));
+                 apprenticeService.addNewApprentice(apprentice);
+              }
+              linenumber++;
+            }
+
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
 
         return "redirect:/apprentice";
     }

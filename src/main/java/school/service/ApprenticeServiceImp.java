@@ -41,4 +41,10 @@ public class ApprenticeServiceImp implements ApprenticeService {
     public List<Apprentice> getApprenticeWithoutClass() {
         return repApprentice.getApprenticesBySchoolClass(null);
     }
+
+    @Override
+    public void uploadDataFromCSV(String text) {
+
+
+    }
 }
