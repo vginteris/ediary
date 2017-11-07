@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "ediary_parent")
 public class Parent {
     private long parentid;
+    private long personalCode;
     private String parentName;
     private String parentSurname;
     private String parentPhone;
@@ -23,6 +24,14 @@ public class Parent {
 
     public void setParentid(long parentid) {
         this.parentid = parentid;
+    }
+
+    public long getPersonalCode() {
+        return personalCode;
+    }
+
+    public void setPersonalCode(long personalCode) {
+        this.personalCode = personalCode;
     }
 
     public String getParentName() {

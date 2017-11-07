@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "ediary_teacher")
 public class Teacher {
     private long teacherid;
+    private long personalCode;
     private String teacherName;
     private String teacherSurname;
     private String teacherPhone;
@@ -23,6 +24,14 @@ public class Teacher {
 
     public void setTeacherid(long teacherid) {
         this.teacherid = teacherid;
+    }
+
+    public long getPersonalCode() {
+        return personalCode;
+    }
+
+    public void setPersonalCode(long personalCode) {
+        this.personalCode = personalCode;
     }
 
     public String getTeacherName() {

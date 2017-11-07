@@ -29,6 +29,8 @@ public class TeacherController {
     UserService userService;
     @Autowired
     ApprenticeService apprenticeService;
+    @Autowired
+    UserRoleService userRoleService;
 
     @RequestMapping(value = "/teacher", method = RequestMethod.GET)
     public ModelAndView getAllTeacher() {
@@ -44,8 +46,14 @@ public class TeacherController {
 
     @RequestMapping(value = "/newapteacher", method = RequestMethod.POST, consumes = {"application/x-www-form-urlencoded"})
     public String addNewTeacher(@ModelAttribute Teacher teacher, @ModelAttribute SchoolClass schoolClass,
-                                @ModelAttribute LoginUser loginUser, @RequestParam(value = "subject") String[] subject) {
+                                 @RequestParam(value = "subject") String[] subject, @RequestParam(value = "roleid") long roleid) {
         teacher.setSchoolClass(classService.checkClassOrCreatNew(schoolClass.getClassName()));
+
+        String personalCode= String.valueOf(teacher.getPersonalCode());
+        LoginUser loginUser = new LoginUser(personalCode,personalCode,personalCode);
+        loginUser.setUserRole(userRoleService.getUserRoleByID(roleid));
+        loginUser.setUserid(userService.insertNewUserAndGetID(loginUser));
+
         teacher.setLoginUser(userService.findByUsername(loginUser.getUsername()));
         teacher.setTeacherid(teacherService.addNewTeacherAndReturnId(teacher));
         for (String subid : subject) {

@@ -20,6 +20,7 @@
                     <h5>New apprentice</h5>
                     <input type="text" class="form-control" placeholder="Name" name="apprenticeName">
                     <input type="text" class="form-control" placeholder="surname" name="apprenticeSurname">
+                    <input type="text" class="form-control" placeholder="Personal code" name="personalCode">
                     <%--<input type="text" class="form-control" placeholder="classname" name="className">--%>
                     <select name="parentid">
                         <option value="0">Choose Parent</option>
@@ -33,9 +34,9 @@
                             <option value="<c:out value="${schoolclass.getSchoolClassid()}"/>"><c:out value="${schoolclass.getClassName()}"/></option>
                         </c:forEach>
                     </select>
-                    <input type="text" class="form-control" placeholder="Login username" name="username">
-                    <input type="text" class="form-control" placeholder="Login password" name="password">
-                    <input type="text" class="form-control" placeholder="Password Confirm" name="passwordComfirm">
+                    <%--<input type="text" class="form-control" placeholder="Login username" name="username">--%>
+                    <%--<input type="text" class="form-control" placeholder="Login password" name="password">--%>
+                    <%--<input type="text" class="form-control" placeholder="Password Confirm" name="passwordComfirm">--%>
                     <select name="roleid">
                         <option value="0">Choose Role</option>
                         <c:forEach var="rolelist" items="${rolelist}">

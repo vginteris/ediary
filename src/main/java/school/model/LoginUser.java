@@ -11,6 +11,14 @@ public class LoginUser {
     private String passwordComfirm;
     private UserRole userRole;
 
+    public LoginUser() {
+    }
+
+    public LoginUser(String username, String password, String passwordComfirm) {
+        this.username = username;
+        this.password = password;
+        this.passwordComfirm = passwordComfirm;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

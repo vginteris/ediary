@@ -47,4 +47,9 @@ public class ApprenticeServiceImp implements ApprenticeService {
 
 
     }
+
+    @Override
+    public void addNewApprenticeFromCSV(List<Apprentice> apprenticeList) {
+        repApprentice.save(apprenticeList);
+    }
 }

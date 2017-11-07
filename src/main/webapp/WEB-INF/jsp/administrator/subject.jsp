@@ -94,10 +94,10 @@
                             <br>
                             <label>Choose type </label><br>
                             <div class="radio">
-                                <label><input type="radio" name="subjectType" checked>Main</label>
+                                <label><input type="radio" name="subjectType" checked value="Main">Main</label>
                             </div>
                             <div class="radio">
-                                <label><input type="radio" name="subjectType">Modul</label>
+                                <label><input type="radio" name="subjectType" value="Modul">Modul</label>
                             </div>
                         </form>
 

@@ -58,10 +58,12 @@
                         <form method="post" action="/newapteacher" id="saveclass">
                             <input type="text" class="form-control" id="teacherName" name="teacherName" placeholder="Name">
                             <input type="text" class="form-control" id="teacherSurname" name="teacherSurname" placeholder="Surname">
+                            <input type="text" class="form-control" id="personalCode" name="personalCode" placeholder="Personal Code">
                             <input type="text" class="form-control" id="teacherPhone" name="teacherPhone" placeholder="Phone">
                             <input type="text" class="form-control" id="teacherEmail" name="teacherEmail" placeholder="Email">
                             <input type="text" class="form-control" id="className" name="className" placeholder="New or exist class">
-                            <input type="text" class="form-control" placeholder="Login username" name="username">
+                            <input type="hidden" value="2" name="roleid" id="roleid">
+                            <%--<input type="text" class="form-control" placeholder="Login username" name="username">--%>
                             <br>
                             <label for="subject">Subject </label><br>
                             <select multiple class="form-control" name="subject" id="subject">

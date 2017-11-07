@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Table(name = "ediary_apprentice")
 public class Apprentice {
     private long apprenticeid;
+    private long personalCode;
     private String apprenticeName;
     private String apprenticeSurname;
     private SchoolClass schoolClass;
@@ -20,6 +21,14 @@ public class Apprentice {
 
     public void setApprenticeid(long apprenticeid) {
         this.apprenticeid = apprenticeid;
+    }
+
+    public long getPersonalCode() {
+        return personalCode;
+    }
+
+    public void setPersonalCode(long personalCode) {
+        this.personalCode = personalCode;
     }
 
     public String getApprenticeName() {

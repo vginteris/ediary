@@ -44,9 +44,11 @@ public class ApprenticeController {
 
     @RequestMapping(value = "/newapprentice", method = RequestMethod.POST)
     public String addNewApprentice(@ModelAttribute Apprentice apprentice, @ModelAttribute SchoolClass schoolClass, @ModelAttribute Parent parent,
-                                   @ModelAttribute LoginUser loginUser, @ModelAttribute UserRole userRole) {
+                                   @ModelAttribute UserRole userRole) {
 //        schoolClass.setSchoolClassid(schoolClassService.addnewclass(schoolClass));
 //        parent.setParentid(parentService.addNewParentAndReturnId(parent));
+        String personalCode= String.valueOf(apprentice.getPersonalCode());
+        LoginUser loginUser = new LoginUser(personalCode,personalCode,personalCode);
         loginUser.setUserRole(userRoleService.getUserRoleByID(userRole.getRoleid()));
         loginUser.setUserid(userService.insertNewUserAndGetID(loginUser));
 
@@ -89,27 +91,37 @@ public class ApprenticeController {
 
     @RequestMapping(value = "/uploadapprentices", method = RequestMethod.POST)
     public String uploadFileAndWriteApprentie(@RequestParam(value = "fileap") MultipartFile fileap, ModelMap modelMap){
-       BufferedReader br;
+        List<Apprentice> apprenticeList = new ArrayList<>();
+        BufferedReader br;
         try {
 
             String line;
             InputStream is = fileap.getInputStream();
             br = new BufferedReader(new InputStreamReader(is));
             int linenumber=0;
+            UserRole userRole = userRoleService.getUserRoleByName("teacher");
             Apprentice apprentice;
             while ((line = br.readLine()) != null) {
                String[] array = line.split(",");
               if (linenumber !=0) {
                  apprentice = new Apprentice();
-                 apprentice.setApprenticeName(array[0]);
-                 apprentice.setApprenticeSurname(array[1]);
-                 apprentice.setSchoolClass(schoolClassService.getSchoolClassByID(Long.parseLong(array[2])));
-                 apprentice.setApprentieParent(parentService.getParentById(Long.parseLong(array[3])));
-                 apprentice.setLoginUser(userService.findByUsername(array[4]));
-                 apprenticeService.addNewApprentice(apprentice);
+                 String personalCode = array[0];
+
+                  LoginUser loginUser = new LoginUser(personalCode,personalCode,personalCode);
+                  loginUser.setUserRole(userRole);
+                  loginUser.setUserid(userService.insertNewUserAndGetID(loginUser));
+
+                 apprentice.setPersonalCode(Long.parseLong(personalCode));
+                 apprentice.setApprenticeName(array[1]);
+                 apprentice.setApprenticeSurname(array[2]);
+                 apprentice.setSchoolClass(schoolClassService.getSchoolClassByID(Long.parseLong(array[3])));
+                 apprentice.setApprentieParent(parentService.getParentById(Long.parseLong(array[4])));
+                 apprentice.setLoginUser(loginUser);
+                 apprenticeList.add(apprentice);
               }
               linenumber++;
             }
+            apprenticeService.addNewApprenticeFromCSV(apprenticeList);
 
         } catch (IOException e) {
             System.err.println(e.getMessage());
