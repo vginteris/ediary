@@ -3,6 +3,7 @@ package school.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import school.model.Apprentice;
+import school.model.Parent;
 import school.repository.RepApprentice;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class ApprenticeServiceImp implements ApprenticeService {
     }
 
     @Override
-    public Apprentice getApprenticeByID(long id) {
+    public Apprentice getApprenticeByID(Long id) {
         return repApprentice.getOne(id);
     }
 
@@ -43,13 +44,24 @@ public class ApprenticeServiceImp implements ApprenticeService {
     }
 
     @Override
-    public void uploadDataFromCSV(String text) {
-
-
-    }
-
-    @Override
     public void addNewApprenticeFromCSV(List<Apprentice> apprenticeList) {
         repApprentice.save(apprenticeList);
     }
+
+    @Override
+    public void updateApprenticeNameSurnameAndCode(String name, String surname, long personalCode, long apprenticeid) {
+        repApprentice.updateApprenticeNameSurnameAndCode(name,surname,personalCode,apprenticeid);
+    }
+
+    @Override
+    public void updateApprenticeParent(Parent parent, long apprenticeid) {
+        repApprentice.updateApprenticeParent(parent,apprenticeid);
+    }
+
+    @Override
+    public void setNullWhenDeleteParent(Parent parent) {
+        repApprentice.updateApprenticeParentSetNull(parent);
+    }
+
+
 }

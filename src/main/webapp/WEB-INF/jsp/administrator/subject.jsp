@@ -75,8 +75,11 @@
         <button type="button" class="btn btn-secondary margin_top_15px" data-toggle="modal" data-target="#exampleModal">
             Add new subject
         </button>
+        <button type="button" class="btn btn-secondary margin_top_15px" data-toggle="modal" data-target="#addmodal">
+            bla bla
+        </button>
 
-        <!-- Modal -->
+        <!-- 1 Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -98,6 +101,41 @@
                             </div>
                             <div class="radio">
                                 <label><input type="radio" name="subjectType" value="Modul">Modul</label>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="document.forms['saveclass'].submit()">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 Modal -->
+        <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalTitle">Subject information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/addsubject" id="xxx">
+                            <input type="text" class="form-control" id="xxxx" name="subjectName"
+                                   placeholder="Subject name222">
+                            <br>
+                            <label>Choose type 222</label><br>
+                            <div class="radio">
+                                <label><input type="radio" name="subjectType" checked value="Main">Main2</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="subjectType" value="Modul">Modul22</label>
                             </div>
                         </form>
 

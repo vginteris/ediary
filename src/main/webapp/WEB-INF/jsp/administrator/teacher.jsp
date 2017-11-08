@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <%--<script type="text/javascript" src="../../../js/captainlist.js"></script>--%>
     <link rel="stylesheet" href="css/structure.css">
+    <script type="text/javascript" src="webjars/jquery/3.2.1/jquery.js"></script>
     <script type="text/javascript">
         function delete_teacher(teacherid) {
             document.getElementById("row_teacher"+teacherid).outerHTML = "";
@@ -24,6 +25,31 @@
             };
             postgres.open("POST", url+"?"+parameter, true);
             postgres.send();
+
+        }
+        function update_teacher(teacherid) {
+
+
+            var id = $('#id_row_teacher' + teacherid).text();
+            var name = $('#name_row_teacher' + teacherid).text();
+            var surname = $('#surname_row_teacher' + teacherid).text();
+            var phone = $('#phone_row_teacher' + teacherid).text();
+            var email = $('#email_row_teacher' + teacherid).text();
+            var prCode = $('#personalcode_row_teacher' + teacherid).text();
+
+            $.post("/updateteacher",
+                {
+                    teacherid: teacherid,
+                    teacherName: name,
+                    teacherSurname: surname,
+                    teacherPhone: phone,
+                    teacherEmail: email,
+                    personalCode: prCode
+                },
+                function (data, status) {
+                    alert("Update to DB success")
+                }
+            );
 
         }
     </script>
@@ -92,20 +118,21 @@
                 <th>Surname</th>
                 <th>Phone</th>
                 <th>Email</th>
+                <th>Personal Code</th>
                 <th>Subjects</th>
                 <th>School class</th>
-                <th>Login username</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="teacher" items="${teacherList}">
                 <tr id="row_teacher${teacher.getTeacherid()}">
-                    <td id="id_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherid()}"/></td>
-                    <td id="name_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherName()}"/></td>
-                    <td id="surname_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherSurname()}"/></td>
-                    <td id="phone_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherPhone()}"/></td>
-                    <td id="email_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getTeacherEmail()}"/></td>
+                    <td id="id_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getTeacherid()}"/></td>
+                    <td id="name_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getTeacherName()}"/></td>
+                    <td id="surname_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getTeacherSurname()}"/></td>
+                    <td id="phone_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getTeacherPhone()}"/></td>
+                    <td id="email_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getTeacherEmail()}"/></td>
+                    <td id="personalcode_row_teacher${teacher.getTeacherid()}" contenteditable="true"><c:out value="${teacher.getPersonalCode()}"/></td>
                     <td>
                         <c:forEach var="subjects" items="${teacher.subjects}">
                             <c:out value="${subjects.getSubjectName()}"/>
@@ -113,8 +140,9 @@
                         </c:forEach>
                     </td>
                     <td id="schoolclass_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.schoolClass.getClassName()}"/></td>
-                    <td id="loginuser_row_teacher${teacher.getTeacherid()}"><c:out value="${teacher.getLoginUser().getUsername()}"/></td>
                     <td >
+                        <input type="button" id="update_apprentice${teacher.getTeacherid()}" value="UPDATE"
+                               onclick="update_teacher(${teacher.getTeacherid()})">
                         <input type="button" id="delete_teacher${teacher.getTeacherid()}" value="DELETE"
                                onclick="delete_teacher(${teacher.getTeacherid()})">
                     </td>
@@ -144,7 +172,7 @@
         }
     }
 </script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>

@@ -75,12 +75,11 @@ public class ApprenticeController {
     }
 
     @RequestMapping(value = "/updateapprentice", method = RequestMethod.POST)
-    public String updateApprentice(@ModelAttribute Apprentice apprentice, @ModelAttribute Parent parent,
-                                   @ModelAttribute LoginUser loginUser, @ModelAttribute SchoolClass schoolClass) {
-        apprentice.setApprentieParent(parentService.getParentByName(parent.getParentName()));
-        apprentice.setLoginUser(userService.findByUsername(loginUser.getUsername()));
-        apprentice.setSchoolClass(schoolClassService.getSchoolClasByName(schoolClass.getClassName()));
-        apprenticeService.updateApprentice(apprentice);
+    public String updateApprentice(@ModelAttribute Apprentice apprentice) {
+//        apprentice.setApprentieParent(parentService.getParentByName(parent.getParentName()));
+//        apprentice.setLoginUser(userService.findByUsername(loginUser.getUsername()));
+//        apprentice.setSchoolClass(schoolClassService.getSchoolClasByName(schoolClass.getClassName()));
+        apprenticeService.updateApprenticeNameSurnameAndCode(apprentice.getApprenticeName(),apprentice.getApprenticeSurname(),apprentice.getPersonalCode(),apprentice.getApprenticeid());
         return "redirect:/apprentice";
     }
 

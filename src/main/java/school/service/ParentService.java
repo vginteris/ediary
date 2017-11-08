@@ -12,4 +12,5 @@ public interface ParentService {
     Parent getParentByName(String name);
     long addNewParentAndReturnId(Parent parent);
     Parent getParentById(long id);
+    Parent addNewParentAndReturnParent(Parent parent);
 }

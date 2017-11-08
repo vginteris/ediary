@@ -75,6 +75,7 @@ public class Parent {
     }
 
     @OneToMany(mappedBy = "apprentieParent")
+    @Column(columnDefinition="default null")
     public List<Apprentice> getParentChildrenList() {
         return parentChildrenList;
     }
@@ -83,7 +84,7 @@ public class Parent {
         this.parentChildrenList = parentChildrenList;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "userid")
     public LoginUser getLoginUser() {
         return loginUser;

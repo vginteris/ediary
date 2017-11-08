@@ -46,4 +46,9 @@ public class ParentServiceImp implements ParentService {
     public Parent getParentById(long id) {
         return repParent.getOne(id);
     }
+
+    @Override
+    public Parent addNewParentAndReturnParent(Parent parent) {
+        return addNewParentAndReturnParent(parent);
+    }
 }

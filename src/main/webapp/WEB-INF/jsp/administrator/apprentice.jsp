@@ -34,22 +34,14 @@
             var id = $('#id_row_apprentice' + apprenticeid).text();
             var name = $('#name_row_apprentice' + apprenticeid).text();
             var surname = $('#surname_row_apprentice' + apprenticeid).text();
-            var schoolClass = $('#class_row_apprentice' + apprenticeid).text();
-            var parent = $('#parent_row_apprentice' + apprenticeid).text();
-            var loginuser = $('#loginuser_row_apprentice' + apprenticeid).text();
-            alert(name);
-            console.log(name);
-            console.log(surname);
+            var prCode = $('#personalcode_row_apprentice' + apprenticeid).text();
 
             $.post("/updateapprentice",
                 {
                     apprenticeid: apprenticeid,
                     apprenticeName: name,
                     apprenticeSurname: surname,
-                    className: schoolClass,
-                    parentName: parent,
-                    username: loginuser
-
+                    personalCode: prCode
                 },
                 function (data, status) {
                     alert("Update to DB success")
@@ -101,9 +93,9 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Surname</th>
+                <th>Personal Code</th>
                 <th>Class name</th>
                 <th>Parent</th>
-                <th>Login name</th>
                 <th>Action</th>
 
 
@@ -118,12 +110,12 @@
                             value="${apprentice.getApprenticeName()}"/></td>
                     <td id="surname_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
                             value="${apprentice.getApprenticeSurname()}"/></td>
+                    <td id="personalcode_row_apprentice${apprentice.getApprenticeid()}" contenteditable="true"><c:out
+                            value="${apprentice.getPersonalCode()}"/></td>
                     <td id="class_row_apprentice${apprentice.getApprenticeid()}"><c:out
                             value="${apprentice.getSchoolClass().getClassName()}"/></td>
                     <td id="parent_row_apprentice${apprentice.getApprenticeid()}"><c:out
                             value="${apprentice.getApprentieParent().getParentName()}"/></td>
-                    <td id="loginuser_row_apprentice${apprentice.getApprenticeid()}"><c:out
-                            value="${apprentice.getLoginUser().getUsername()}"/></td>
                     <td>
                         <input type="button" id="update_apprentice${apprentice.getApprenticeid()}" value="UPDATE"
                                onclick="update_apprentice(${apprentice.getApprenticeid()})">

@@ -70,7 +70,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/updateteacher", method = RequestMethod.POST)
     public String updateTeacher(@ModelAttribute Teacher teacher) {
-        teacherService.updateTeacher(teacher);
+        teacherService.updateJustTeacher(teacher);
         return "redirect:/teacher";
     }
 
