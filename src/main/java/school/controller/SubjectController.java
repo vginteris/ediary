@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import school.model.LoginUser;
 import school.model.SchoolSubject;
+import school.model.Teacher;
 import school.model.UserRole;
 import school.service.SubjectService;
 import school.service.TeacherService;
@@ -33,6 +34,8 @@ public class SubjectController {
         ModelAndView model = new ModelAndView("administrator/subject");
         List<SchoolSubject> subjectList = subjectService.getAllSubject();
         model.addObject("subjectList",subjectList);
+        List<Teacher> teacherList = teacherService.getAllTeacher();
+        model.addObject("teacherList", teacherList);
         return model;
     }
     @RequestMapping(value = "/removesubject",method = RequestMethod.DELETE)
@@ -50,6 +53,17 @@ public class SubjectController {
         subjectService.updateSubjectNameAndType(schoolSubject.getSubjectName(),schoolSubject.getSubjectType(),schoolSubject.getSubjectid());
         return "redirect:/allsubjects";
     }
+    @RequestMapping(value = "/subteacher", method = RequestMethod.DELETE)
+    public String deleteTeacherFromSubject(@RequestParam(value = "subjectid") long subjectid){
+        subjectService.deleteTeacherFromSubject(subjectid);
+        return "redirect:/allsubjects";
+    }
 
+    @RequestMapping(value = "/subteacher", method = RequestMethod.POST)
+    public String addTeacherToSubject(@RequestParam(value = "subjectid") long subjectid,@RequestParam(value = "teacherid") long teacherid ){
+        Teacher teacher = teacherService.getOneTeacher(teacherid);
+        subjectService.addTeacherToSubject(teacher,subjectid);
+        return "redirect:/allsubjects";
+    }
 
 }

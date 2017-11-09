@@ -44,11 +44,18 @@ public class ParentServiceImp implements ParentService {
 
     @Override
     public Parent getParentById(long id) {
-        return repParent.getOne(id);
+        return repParent.findOne(id);
     }
 
     @Override
     public Parent addNewParentAndReturnParent(Parent parent) {
         return addNewParentAndReturnParent(parent);
+    }
+
+    @Override
+    public void updateJustParent(Parent parent) {
+        repParent.updateJustParentInformation(parent.getParentName(),parent.getParentSurname(),
+                parent.getPersonalCode(),parent.getParentPhone(),parent.getParentEmail(),
+                parent.getParentAddress(),parent.getParentid());
     }
 }

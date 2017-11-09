@@ -31,5 +31,7 @@ public interface RepApprentice extends JpaRepository<Apprentice,Long> {
     @Transactional
     void updateApprenticeParentSetNull(@Param("parent")Parent parent);
 
+    List<Apprentice> getApprenticesByApprentieParent(Parent parent);
+
 }
 

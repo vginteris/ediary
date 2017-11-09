@@ -19,4 +19,6 @@ public interface RepTeacher extends JpaRepository<Teacher,Long>{
     void updateJustTeacher(@Param("personalCode") long personalCode, @Param("teacherName") String teacherName, @Param("teacherSurname") String teacherSurname
             , @Param("teacherPhone") String teacherPhone, @Param("teacherEmail") String teacherEmail, @Param("teacherid") long teacherid);
 
+
+
 }

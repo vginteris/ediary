@@ -33,31 +33,19 @@
 
         }
 
-        function update_parent(parentid) {
+//        function update_parent(parentid) {
+//
+//            $.post("/updateparent",
+//                {
+//                    parentid: parentid
+//
+//                },
+//                function (data, status) {
+//
+//                }
+//            );
 
-
-            var id = $('#id_row_parent' + parentid).text();
-            var name = $('#name_row_parent' + parentid).text();
-            var surname = $('#surname_row_parent' + parentid).text();
-            var phone = $('#phone_row_parent' + parentid).text();
-            var email = $('#email_row_parent' + parentid).text();
-            var prCode = $('#personalcode_row_parent' + parentid).text();
-
-            $.post("/updateparent",
-                {
-                    parentid: parentid,
-                    parentName: name,
-                    parentSurname: surname,
-                    parentPhone: phone,
-                    parentEmail: email,
-                    personalCode: prCode
-                },
-                function (data, status) {
-                    alert("Update to DB success")
-                }
-            );
-
-        }
+//        }
     </script>
 </head>
 <body>
@@ -156,8 +144,9 @@
                         </c:forEach>
                     </td>
                     <td>
-                        <input type="button" id="update_apprentice${parent.getParentid()}" value="UPDATE"
-                               onclick="update_parent(${parent.getParentid()})">
+                        <form action="/updateparent" method="get">
+                            <button type="submit" id="parentid" name="parentid" value="${parent.getParentid()}">UPDATE</button>
+                        </form>
                         <input type="button" id="delete_parent${parent.getParentid()}" value="DELETE"
                                onclick="delete_parent(${parent.getParentid()})">
                     </td>

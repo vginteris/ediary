@@ -3,6 +3,7 @@ package school.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import school.model.SchoolSubject;
+import school.model.Teacher;
 import school.repository.RepSubject;
 
 import java.util.List;
@@ -56,5 +57,15 @@ public class SubjectServiceImp implements SubjectService {
     @Override
     public void updateSubjectNameAndType(String subjectName, String subjectType, long subjectid) {
         repSubject.updateSubjectNameAndType(subjectName,subjectType,subjectid);
+    }
+
+    @Override
+    public void deleteTeacherFromSubject(long subjectid) {
+        repSubject.updateSubjectTeacher(null,subjectid);
+    }
+
+    @Override
+    public void addTeacherToSubject(Teacher teacher, long subjectid) {
+        repSubject.updateSubjectTeacher(teacher,subjectid);
     }
 }

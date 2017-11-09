@@ -63,5 +63,10 @@ public class ApprenticeServiceImp implements ApprenticeService {
         repApprentice.updateApprenticeParentSetNull(parent);
     }
 
+    @Override
+    public List<Apprentice> getApprenticesByApprentieParent(Parent parent) {
+        return repApprentice.getApprenticesByApprentieParent(parent);
+    }
+
 
 }

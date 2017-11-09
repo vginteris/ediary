@@ -1,6 +1,7 @@
 package school.service;
 
 import school.model.SchoolSubject;
+import school.model.Teacher;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface SubjectService {
     SchoolSubject getSubjectById(long id);
     List<SchoolSubject> getALlUniqueSubject();
     void updateSubjectNameAndType(String subjectName,String subjectType, long subjectid);
+    void deleteTeacherFromSubject(long subjectid);
+    void addTeacherToSubject(Teacher teacher, long subjectid);
 }

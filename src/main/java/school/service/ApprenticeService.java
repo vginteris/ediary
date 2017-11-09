@@ -16,4 +16,5 @@ public interface ApprenticeService {
     void updateApprenticeNameSurnameAndCode(String name, String surname, long personalCode, long apprenticeid);
     void updateApprenticeParent(Parent parent, long apprenticeid);
     void setNullWhenDeleteParent(Parent parent);
+    List<Apprentice> getApprenticesByApprentieParent(Parent parent);
 }

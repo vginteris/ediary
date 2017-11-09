@@ -13,4 +13,5 @@ public interface ParentService {
     long addNewParentAndReturnId(Parent parent);
     Parent getParentById(long id);
     Parent addNewParentAndReturnParent(Parent parent);
+    void updateJustParent(Parent parent);
 }

@@ -21,4 +21,10 @@ public interface RepSubject extends JpaRepository<SchoolSubject, Long> {
             ("update SchoolSubject sub set sub.subjectName = :subjectName , sub.subjectType = :subjectType where sub.subjectid= :subjectid")
    @Transactional
     void updateSubjectNameAndType(@Param("subjectName") String subjectName, @Param("subjectType") String subjectType, @Param("subjectid") long subjectid);
+
+    @Modifying
+    @Query
+            ("update SchoolSubject subject set subject.teacher = :teacher where subject.subjectid = :subjectid")
+    @Transactional
+    void updateSubjectTeacher(@Param("teacher") Teacher teacher, @Param("subjectid") long subjectid);
 }

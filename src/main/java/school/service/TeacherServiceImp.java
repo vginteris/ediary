@@ -46,4 +46,9 @@ public class TeacherServiceImp implements TeacherService {
         repTeacher.updateJustTeacher(teacher.getPersonalCode(),teacher.getTeacherName(),teacher.getTeacherSurname(),teacher.getTeacherPhone(),teacher.getTeacherEmail(),teacher.getTeacherid());
     }
 
+    @Override
+    public Teacher getOneTeacher(long teacherid) {
+        return repTeacher.findOne(teacherid);
+    }
+
 }

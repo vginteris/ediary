@@ -2,10 +2,7 @@ package school.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import school.model.Apprentice;
 import school.model.LoginUser;
@@ -71,5 +68,36 @@ public class ParentController {
         parentService.deleteParentById(parent.getParentid());
         return "redirect:/parent";
     }
+
+    @RequestMapping(value = "/updateparent", method = RequestMethod.GET)
+    public ModelAndView getOneParentInformation(@RequestParam("parentid") long parentid)
+    {
+        ModelAndView model = new ModelAndView("administrator/updateparent");
+        Parent parent = parentService.getParentById(parentid);
+        model.addObject("selectparent", parent);
+        List<Apprentice> apprenticeList = apprenticeService.getAllAprentice();
+        model.addObject("apprenticeList", apprenticeList);
+        return model;
+    }
+
+    @RequestMapping(value = "/updateparent", method = RequestMethod.POST)
+    public String updateParentInformation(@ModelAttribute Parent parent, @RequestParam(value = "apprenticeid") long[] apprenticeid){
+        List<Apprentice> apprenticeList = apprenticeService.getApprenticesByApprentieParent(parent);
+        for(long apprid:apprenticeid){
+            int tempnumber = 0;
+            for (Apprentice apprentice:apprenticeList){
+                if (apprentice.getApprenticeid() == apprid) {
+                    tempnumber++;
+                }
+            }
+            if (tempnumber == 0){
+                apprenticeService.updateApprenticeParent(parent,apprid);
+            }
+        }
+        parentService.updateJustParent(parent);
+        return "redirect:/parent";
+    }
+
+
 
 }
