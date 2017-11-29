@@ -89,7 +89,7 @@ public class ApprenticeController {
     }
 
     @RequestMapping(value = "/uploadapprentices", method = RequestMethod.POST)
-    public String uploadFileAndWriteApprentie(@RequestParam(value = "fileap") MultipartFile fileap, ModelMap modelMap){
+    public String uploadFileAndWriteApprentie(@RequestParam(value = "fileap") MultipartFile fileap){
         List<Apprentice> apprenticeList = new ArrayList<>();
         BufferedReader br;
         try {
