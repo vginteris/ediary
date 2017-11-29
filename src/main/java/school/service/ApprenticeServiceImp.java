@@ -13,6 +13,10 @@ public class ApprenticeServiceImp implements ApprenticeService {
     @Autowired
     RepApprentice repApprentice;
 
+    public ApprenticeServiceImp(RepApprentice repApprentice) {
+        this.repApprentice = repApprentice;
+    }
+
     @Override
     public List<Apprentice> getAllAprentice() {
         return repApprentice.findAll();
