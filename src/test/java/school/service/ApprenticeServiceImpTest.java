@@ -54,6 +54,20 @@ public class ApprenticeServiceImpTest {
         List<Apprentice> getAllAprrentice = apprenticeService.getAllAprentice();
         verify(repApprentice, times(1)).findAll();
     }
+
+    @Test
+    public void getAllAprenticeAndReturnTwoMockito()throws Exception {
+        Apprentice apprentice = new Apprentice();
+        Apprentice apprentice2 = new Apprentice();
+        List<Apprentice> apprenticeList = new ArrayList<>();
+        apprenticeList.add(apprentice);
+        apprenticeList.add(apprentice2);
+
+        when(apprenticeService.getAllAprentice()).thenReturn(apprenticeList);
+        List<Apprentice> getAllAprrentice = apprenticeService.getAllAprentice();
+//        verify(repApprentice, times(2)).findAll();
+        assertEquals(getAllAprrentice.size(),2);
+    }
     
 
 
